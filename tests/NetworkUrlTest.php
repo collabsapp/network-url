@@ -13,7 +13,7 @@ final class NetworkUrlTest extends TestCase
         self::assertSame($expected, NetworkUrl::fullUrl($network, $username));
     }
 
-    public static function dataProvider(): \Generator
+    public static function dataProvider(): Generator
     {
         yield ['https://www.instagram.com/foobar', 'instagram', 'foobar'];
         yield ['https://www.tiktok.com/@baz', 'tiktok', 'baz'];
