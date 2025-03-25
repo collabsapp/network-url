@@ -1,7 +1,7 @@
 {
   "name": "collabs/network-url",
   "description": "Convert social media network name and username to profile page url",
-  "type": "project",
+  "type": "library",
   "license": "MIT",
   "require": {
     "php": ">=8.3"
