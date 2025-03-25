@@ -1,0 +1,19 @@
+{
+  "name": "collabs/network-url",
+  "description": "Convert social media network name and username to profile page url",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Collabs\\NetworkUrl\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^12.0",
+    "vimeo/psalm": "^6.9",
+    "friendsofphp/php-cs-fixer": "^3.73"
+  }
+}
