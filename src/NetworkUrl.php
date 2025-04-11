@@ -9,7 +9,7 @@ final class NetworkUrl
         return match ($network) {
             'tiktok' => 'https://www.tiktok.com/@'.$username,
             'instagram' => 'https://www.instagram.com/'.$username,
-            'youtube' => 'https://www.youtube.com/'.$username,
+            'youtube' => 'https://www.youtube.com/@'.$username,
             default => throw new InvalidNetworkException($network),
         };
     }
