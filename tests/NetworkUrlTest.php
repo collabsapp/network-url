@@ -18,6 +18,8 @@ final class NetworkUrlTest extends TestCase
         yield ['https://www.instagram.com/foobar', 'instagram', 'foobar'];
         yield ['https://www.tiktok.com/@baz', 'tiktok', 'baz'];
         yield ['https://www.youtube.com/@foobarbaz', 'youtube', 'foobarbaz'];
+        yield ['https://www.youtube.com/@FooBarBaz', 'youtube', 'FooBarBaz'];
+        yield ['https://www.youtube.com/c/ÖrebroHockeyPlay', 'youtube', 'ÖrebroHockeyPlay'];
     }
 
     #[DataProvider('mediaDataProvider')]

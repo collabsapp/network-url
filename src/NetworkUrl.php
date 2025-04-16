@@ -9,7 +9,9 @@ final class NetworkUrl
         return match ($network) {
             'tiktok' => 'https://www.tiktok.com/@'.$username,
             'instagram' => 'https://www.instagram.com/'.$username,
-            'youtube' => 'https://www.youtube.com/@'.$username,
+            'youtube' => preg_match('/[^\w]/', $username)
+                ? 'https://www.youtube.com/c/'.$username
+                : 'https://www.youtube.com/@'.$username,
             default => throw new InvalidNetworkException($network),
         };
     }
