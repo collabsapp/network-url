@@ -20,6 +20,8 @@ final class NetworkUrlTest extends TestCase
         yield ['https://www.youtube.com/@foobarbaz', 'youtube', 'foobarbaz'];
         yield ['https://www.youtube.com/@FooBarBaz', 'youtube', 'FooBarBaz'];
         yield ['https://www.youtube.com/c/ÖrebroHockeyPlay', 'youtube', 'ÖrebroHockeyPlay'];
+        yield ['https://www.patreon.com/c/foobar', 'patreon', 'foobar'];
+        yield ['https://x.com/foobar', 'x', 'foobar'];
     }
 
     #[DataProvider('mediaDataProvider')]
@@ -33,6 +35,8 @@ final class NetworkUrlTest extends TestCase
         yield ['https://www.instagram.com/p/aaa', 'instagram', 'foobar', 'aaa'];
         yield ['https://www.tiktok.com/@baz/video/bbb', 'tiktok', 'baz', 'bbb'];
         yield ['https://www.youtube.com/watch?v=ccc', 'youtube', 'foobarbaz', 'ccc'];
+        yield ['https://www.patreon.com/posts/baz-123', 'patreon', 'foobar', 'baz-123'];
+        yield ['https://x.com/foo/status/123', 'x', 'foo', '123'];
     }
 
     public function test_is_throws_exception_if_invalid_network_for_profile(): void
