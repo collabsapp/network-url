@@ -4,24 +4,36 @@ namespace Collabs\NetworkUrl;
 
 final class NetworkUrl
 {
-    public static function fullUrl(string $network, string $username): string
+    public static function fullUrl(string|NetworkEnum $network, string $username): string
     {
+        if ($network instanceof NetworkEnum) {
+            $network = $network->value;
+        }
+
         return match ($network) {
-            'tiktok' => 'https://www.tiktok.com/@'.$username,
-            'instagram' => 'https://www.instagram.com/'.$username,
-            'youtube' => preg_match('/[^\w]/', $username)
+            NetworkEnum::TIKTOK->value => 'https://www.tiktok.com/@'.$username,
+            NetworkEnum::INSTAGRAM->value => 'https://www.instagram.com/'.$username,
+            NetworkEnum::YOUTUBE->value => preg_match('/[^\w]/', $username)
                 ? 'https://www.youtube.com/c/'.$username
                 : 'https://www.youtube.com/@'.$username,
+            NetworkEnum::X->value => 'https://x.com/'.$username,
+            NetworkEnum::PATREON->value => 'https://www.patreon.com/c/'.$username,
             default => throw new InvalidNetworkException($network),
         };
     }
 
-    public static function mediaUrl(string $network, string $username, string $mediaId): string
+    public static function mediaUrl(string|NetworkEnum $network, string $username, string $mediaId): string
     {
+        if ($network instanceof NetworkEnum) {
+            $network = $network->value;
+        }
+
         return match ($network) {
-            'tiktok' => sprintf('https://www.tiktok.com/@%s/video/%s', $username, $mediaId),
-            'instagram' => 'https://www.instagram.com/p/'.$mediaId,
-            'youtube' => 'https://www.youtube.com/watch?v='.$mediaId,
+            NetworkEnum::TIKTOK->value => sprintf('https://www.tiktok.com/@%s/video/%s', $username, $mediaId),
+            NetworkEnum::INSTAGRAM->value => 'https://www.instagram.com/p/'.$mediaId,
+            NetworkEnum::YOUTUBE->value => 'https://www.youtube.com/watch?v='.$mediaId,
+            NetworkEnum::X->value => sprintf('https://x.com/%s/status/%s', $username, $mediaId),
+            NetworkEnum::PATREON->value => 'https://www.patreon.com/posts/'.$mediaId,
             default => throw new InvalidNetworkException($network),
         };
     }
