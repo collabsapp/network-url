@@ -9,4 +9,5 @@ enum NetworkEnum: string
     case YOUTUBE = 'youtube';
     case X = 'x';
     case PATREON = 'patreon';
+    case SNAPCHAT = 'snapchat';
 }
